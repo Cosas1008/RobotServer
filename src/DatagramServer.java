@@ -10,7 +10,7 @@ import java.net.* ;
 
 public class DatagramServer
 {
-   private final static int PACKETSIZE = 100 ;
+   private final static int PACKETSIZE = 1024 ;
 
    public static void main( String args[] )
    {
