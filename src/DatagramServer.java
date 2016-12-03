@@ -12,6 +12,7 @@ public class DatagramServer
 {
    private final static int PACKETSIZE = 1024 ;
 
+   private static byte[] respo = new byte[]{22,23,24,25,26,27,28,29};
    public static void main( String args[] )
    {
       // Check the arguments
@@ -44,7 +45,14 @@ public class DatagramServer
             System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()) ) ;
 
             // Return the packet to the sender
-            socket.send( packet ) ;
+            
+            //retrive packet's information to send back response
+            InetAddress clientIP = packet.getAddress();
+            int clientPort = packet.getPort();
+            DatagramPacket response = new DatagramPacket(respo,respo.length,clientIP,clientPort );
+            socket.send( response ) ;
+            System.out.println("Send to client IP : port are "+ clientIP.toString() +" @"+ clientPort);
+            System.out.println("Send response is : " + response.toString());
         }  
      }
      catch( Exception e )
