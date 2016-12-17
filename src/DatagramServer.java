@@ -60,7 +60,7 @@ public class DatagramServer
             socket.receive( packet ) ;
 
             // Print the packet
-            System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()) ) ;
+            System.out.println( packet.getAddress() + " " + packet.getPort() ) ;
 
             
             // Return the packet to the sender
@@ -70,7 +70,7 @@ public class DatagramServer
             int clientPort = packet.getPort();
             DatagramPacket response = new DatagramPacket(data,data.length,clientIP,clientPort );
             socket.send( response ) ;
-            System.out.println("Send to client IP : port are "+ clientIP.toString() +" @"+ clientPort);
+            //System.out.println("Send to client IP : port are "+ clientIP.toString() +" @"+ clientPort);
             System.out.println("Send response length is : " + data.length);
             
         }  
