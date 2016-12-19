@@ -45,11 +45,12 @@ public class DatagramServer
          byte[] data = hexStringToByteArray(readRespo);
          // Construct the socket
          DatagramSocket socket = new DatagramSocket( port ) ;
-         System.out.println("Data sent is : ");
+         //System.out.println("Data sent is : ");
          for(byte i : data){
         	 System.out.print(" " + i); 
          }
-         System.out.println( "The server is ready..." ) ;
+         System.out.println();
+         System.out.println( "The server is ready... at " + port ) ;
          
          for( ;; )
          {
